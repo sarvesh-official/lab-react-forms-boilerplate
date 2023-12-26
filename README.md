@@ -1,34 +1,30 @@
-![Logo-nav](https://s3.ap-south-1.amazonaws.com/kalvi-education.github.io/front-end-web-development/Kalvium-Logo.png)
+# React + TypeScript + Vite
 
-### Learning Goals:
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-This lab aims to cover the conpet of `forms` in react.
+Currently, two official plugins are available:
 
-### Task: 
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-Your task is to create a form consisting the following fields:
+## Expanding the ESLint configuration
 
-1. First Name
-2. Last Name
-3. Email
-4. Contacts
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-At the end of the form, you should have a button named as `Register`. Upon clicking on this button, your form should be get submitted - and a message should pop-up -> `Registration succesfull!` for validation purpose.
+- Configure the top-level `parserOptions` property like this:
 
-**NOTE:** You should not get `Registration succesfull!` message, if any of the field is empty. If any field is empty, you should give some message/warning. For eg:
+```js
+export default {
+  // other rules...
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: ['./tsconfig.json', './tsconfig.node.json'],
+    tsconfigRootDir: __dirname,
+  },
+}
+```
 
-If I submit the form, without filling out the first-name field, then I should get a message that `Please enter your first name!`.
-
-Here is demo for your refernce:
-
-![](https://s3.ap-south-1.amazonaws.com/kalvi-education.github.io/front-end-web-development/form-react.gif)
-
-You are free to style the form as per your own creativity.
-
-#### Bonus:
-
-For now, in the above demo -> you can see that - the user is able to give any random number. You can make this better by adding some constraints like -:
-
-if the number of digits in the phone number is not equal to 10, then you can give another message stating that `invalid number`. Similarly, you can add such logical constraints for other fields as well.
-
-Happy Coding ❤️!
+- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
+- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
