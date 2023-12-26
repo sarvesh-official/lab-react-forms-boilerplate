@@ -6,7 +6,7 @@ function App() {
   
   return (
     <>
-      <div className='flex justify-center mt-40 items-center'>
+      <div className='flex justify-center mt-24 items-center'>
         <Form/>
       </div>
     </>
